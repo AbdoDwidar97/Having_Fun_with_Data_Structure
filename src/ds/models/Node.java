@@ -1,4 +1,4 @@
-package linkedlist;
+package ds.models;
 
 public class Node<T>
 {

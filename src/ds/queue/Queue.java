@@ -1,7 +1,6 @@
-package queue;
+package ds.queue;
 
-import linkedlist.LinkedList;
-import linkedlist.Node;
+import ds.models.Node;
 
 public class Queue<T>
 {
@@ -13,7 +12,14 @@ public class Queue<T>
     {
         firstElement = lastElement;
     }
-    public void add(T val)
+
+    public Queue(T[] array)
+    {
+        firstElement = lastElement;
+        for (T t : array) enqueue(t);
+    }
+
+    public void enqueue(T val)
     {
         if (queueSize == 0)
         {
@@ -28,7 +34,7 @@ public class Queue<T>
         queueSize++;
     }
 
-    public T pop()
+    public T dequeue()
     {
         if (queueSize == 0) return null;
 
@@ -36,6 +42,26 @@ public class Queue<T>
         firstElement = firstElement.getNext();
         queueSize--;
         return value;
+    }
+
+    public T peek()
+    {
+        if (queueSize == 0) return null;
+        return firstElement.getValue();
+    }
+
+    public boolean contains(T val)
+    {
+        if (this.isEmpty()) return false;
+        return containsItem(val, firstElement);
+    }
+
+    private boolean containsItem(T val, Node<T> root)
+    {
+        if (root == null) return false;
+        if (root.getValue().equals(val)) return true;
+
+        return containsItem(val, root.getNext());
     }
 
     public int size()

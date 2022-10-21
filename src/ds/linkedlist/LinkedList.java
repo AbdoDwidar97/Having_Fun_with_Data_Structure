@@ -1,4 +1,6 @@
-package linkedlist;
+package ds.linkedlist;
+
+import ds.models.Node;
 
 public class LinkedList <T>
 {

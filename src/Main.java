@@ -1,4 +1,4 @@
-import queue.Queue;
+import ds.queue.Queue;
 
 public class Main
 {
@@ -16,17 +16,20 @@ public class Main
 
         System.out.println(linkedList + " ,Size: " + linkedList.length());
         System.out.println(linkedList.get(0));*/
+        /*/// Queue
+        Queue<String> queue = new Queue<>(new String[]{"Samy", "Samir", "Bilal", "Abanoub"});
 
-        /// Queue
-        Queue<String> queue = new Queue<>();
-        queue.add("Ahmed");
-        queue.add("Ali");
-        queue.add("Hosny");
+        queue.enqueue("Ahmed");
+        queue.enqueue("Ali");
+        queue.enqueue("Hosny");
+        queue.enqueue("Abdo");
 
-        while (!queue.isEmpty())
-        {
-            System.out.println(queue.pop());
-        }
+        System.out.println("The first element is : " + queue.peek());
+
+        System.out.println(queue.contains("Hosnyi"));
+
+        while (!queue.isEmpty()) System.out.println(queue.dequeue());*/
+
     }
 
 }
