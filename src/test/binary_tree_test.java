@@ -29,10 +29,17 @@ public class binary_tree_test
     }
 
     @Test
-    public void _testSearch()
+    public void _testDfsSearch()
     {
         assertTrue(binarySearchTree.dfsSearch(2));
         assertFalse(binarySearchTree.dfsSearch(20));
+    }
+
+    @Test
+    public void _testBfsSearch()
+    {
+        assertTrue(binarySearchTree.bfsSearch(2));
+        assertFalse(binarySearchTree.bfsSearch(20));
     }
 
 }

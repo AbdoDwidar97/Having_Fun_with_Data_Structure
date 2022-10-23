@@ -1,5 +1,6 @@
 package ds.tree;
 import ds.models.TreeNode;
+import ds.queue.Queue;
 
 public class BinarySearchTree
 {
@@ -70,10 +71,34 @@ public class BinarySearchTree
         return root;
     }
 
-    public boolean dfsSearch(int val)
+    public boolean dfsSearch(double val)
     {
-        /// here we must implement DFS search in BST.
-        return true;
+        return dfs(val, root);
     }
 
+    private boolean dfs(double val, TreeNode root)
+    {
+        if (root == null) return false;
+        if (root.getValue() == val) return true;
+        if (root.getLeft() == null && root.getRight() == null) return false;
+        return dfs(val, root.getLeft()) || dfs(val, root.getRight());
+    }
+
+    public boolean bfsSearch(double val)
+    {
+        if (root == null) return false;
+
+        Queue<TreeNode> queue = new Queue<>();
+        queue.enqueue(root);
+
+        while (!queue.isEmpty())
+        {
+            TreeNode node = queue.dequeue();
+            if (node.getValue() == val) return true;
+            if (node.getLeft() != null) queue.enqueue(node.getLeft());
+            if (node.getRight() != null) queue.enqueue(node.getRight());
+        }
+
+        return false;
+    }
 }
